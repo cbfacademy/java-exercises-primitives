@@ -1,19 +1,18 @@
 package com.cbfacademy.arrays;
 
+import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
-import org.junit.Rule;
-import org.junit.contrib.java.lang.system.SystemOutRule;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Arrays Exercises")
 public class AppTest {
-
-    @Rule
-    public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
 
     @Test
     @DisplayName("createIntegerArray() should return an array of 8 Integer elements")
@@ -52,20 +51,25 @@ public class AppTest {
     @Test
     @DisplayName("printFifthElements() should print the correct 5th element from each array")
     public void printFifthElements_PrintsCorrectElements() {
-        // Arrange: get the 5th element (index 4) from each array
         Integer intVal = App.createIntegerArray()[4];
         Float floatVal = App.createFloatArray()[4];
         Double doubleVal = App.createDoubleArray()[4];
         Boolean boolVal = App.createBooleanArray()[4];
+        PrintStream originalOut = System.out;
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
 
-        // Act
-        App.printFifthElements();
-        String output = systemOutRule.getLog();
+        try {
+            App.printFifthElements();
+        } finally {
+            System.setOut(originalOut);
+        }
 
-        // Assert: check that each value is present in the output
-        assertThat(output, org.hamcrest.CoreMatchers.containsString(intVal.toString()));
-        assertThat(output, org.hamcrest.CoreMatchers.containsString(floatVal.toString()));
-        assertThat(output, org.hamcrest.CoreMatchers.containsString(doubleVal.toString()));
-        assertThat(output, org.hamcrest.CoreMatchers.containsString(boolVal.toString()));
+        String output = outContent.toString();
+
+        assertThat(output, containsString(intVal.toString()));
+        assertThat(output, containsString(floatVal.toString()));
+        assertThat(output, containsString(doubleVal.toString()));
+        assertThat(output, containsString(boolVal.toString()));
     }
-} 
+}
