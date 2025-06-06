@@ -59,19 +59,10 @@ System.out.println(lineItem); // Output: Item: Apple iPhone 15 Pro. Price: £119
 
 #### :white_check_mark: Verify Your Implementation
 
-We've created a [unit test suite][5] to verify your solution. To verify that your code works as expected, run the `AppTest` tests.
-
-In your terminal, ensure that you are in the `java-primitives` folder.
-Then run the following command in your terminal.
+We've created a [unit test suite][5] to verify your solution. To verify that your code works as expected, ensure that you are in the root directory of this repository in your terminal, then run the following command:
 
 ```shell
 ./mvnw clean test -Dtest=com.cbfacademy.strings.AppTest
-```
-
-If you are on Windows, run this command instead:
-
-```shell
-mvnw.cmd clean test -Dtest=com.cbfacademy.strings.AppTest
 ```
 
 The `-Dtest=com.cbfacademy.strings.AppTest` flag sets the specific test suite to be executed. If you want to run all the unit tests for the session, simply omit that option.
@@ -149,6 +140,42 @@ System.out.println(++number2);
 ```
 
 **Why is that?**
+
+### :white_check_mark: Verify Your Implementation
+
+To verify that your code works as expected, run the following command in your terminal:
+
+```shell
+./mvnw clean test -Dtest=com.cbfacademy.operators.AppTest
+```
+
+## :pushpin: Arrays
+
+For this section, open the `src/main/java/com/cbfacademy/arrays/` directory. It contains a Java program with several methods to implement:
+
+- `public static Integer[] createIntegerArray()`: Create and return an array of 8 `Integer` elements.
+- `public static Float[] createFloatArray()`: Create and return an array of 12 `Float` elements.
+- `public static Double[] createDoubleArray()`: Create and return an array of 5 `Double` elements.
+- `public static Boolean[] createBooleanArray()`: Create and return an array of 6 `Boolean` elements.
+- `public static void printFifthElements()`: Print the fifth element of each array to the screen.
+
+In each method, replace `throw new RuntimeException("Not implemented")` with your code.
+
+#### :white_check_mark: Verify Your Implementation
+
+Run the following command in your terminal:
+
+```shell
+./mvnw clean test -Dtest=com.cbfacademy.arrays.AppTest
+```
+
+### Stretch Task
+
+Write a method that initialises a matrix with the 4 arrays created above. (Hint: use the `Object` type.)
+
+- `createMatrix`: Initialise and return a matrix (2D array) containing the 4 arrays above as rows.
+
+**Note:** No unit tests are provided for the stretch task.
 
 [1]: https://docs.oracle.com/javase/21/docs/api/index.html
 [2]: https://junit.org/junit5/
