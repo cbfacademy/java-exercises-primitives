@@ -174,8 +174,15 @@ Run the following command in your terminal:
 Write a method that initialises a matrix with the 4 arrays created above. (Hint: use the `Object` type.)
 
 - `createMatrix`: Initialise and return a matrix (2D array) containing the 4 arrays above as rows.
+- Output the matrix to the console.
 
-**Note:** No unit tests are provided for the stretch task.
+#### Notes
+
+No unit tests are provided for the stretch task, so you'll need to run the application to verify that your code works as expected. To run the application, ensure you're in the root directory of this repository in your terminal, then run the following command:
+
+```shell
+./mvnw clean compile exec:java -Dexec.mainClass=com.cbfacademy.arrays.App
+```
 
 [1]: https://docs.oracle.com/javase/21/docs/api/index.html
 [2]: https://junit.org/junit5/

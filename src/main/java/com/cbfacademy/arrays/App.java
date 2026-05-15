@@ -1,6 +1,10 @@
 package com.cbfacademy.arrays;
 
 public class App {
+    public static void main( String[] args ) {
+        System.out.println( "Hello World!" );
+    }
+
     public static Integer[] createIntegerArray() {
         // TODO: Create and return an array of 8 Integer elements
         throw new RuntimeException("Not implemented");
